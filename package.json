@@ -3,22 +3,40 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "cross-env PORT=3002 next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "next": "15.3.3"
+    "@hookform/resolvers": "^5.1.1",
+    "@react-jvectormap/core": "^1.0.4",
+    "@react-jvectormap/unitedstates": "^1.0.1",
+    "apexcharts": "^4.7.0",
+    "axios": "^1.10.0",
+    "flowbite": "^3.1.2",
+    "flowbite-react": "^0.11.8",
+    "lucide-react": "^0.513.0",
+    "next": "15.3.3",
+    "next-auth": "^4.24.11",
+    "react": "^18.3.1",
+    "react-apexcharts": "^1.7.0",
+    "react-dom": "^18.3.1",
+    "react-hook-form": "^7.57.0",
+    "react-icons": "^5.5.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1",
+    "swiper": "^11.2.8",
+    "yup": "^1.6.1"
   },
   "devDependencies": {
-    "typescript": "^5",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4"
+    "autoprefixer": "^10.4.21",
+    "cross-env": "^7.0.3",
+    "postcss": "^8.5.5",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
   }
 }
