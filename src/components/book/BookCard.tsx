@@ -39,24 +39,25 @@ export default function BookCard({
           </div>
         )}
 
-        <img
-          src={image}
-          alt={book.name}
-          className={`w-full ${
-            compact ? "h-[140px]" : "h-[180px]"
-          } object-contain mb-2`}
-        />
+        <div className="relative w-full">
+          <img
+            src={image}
+            alt={book.name}
+            className={`w-full ${
+              compact ? "h-[140px]" : "h-[180px]"
+            } object-contain mb-2 rounded`}
+          />
 
-        {showBadges && (
-          <div className="flex items-center gap-1 mb-1">
-            <span className="bg-red-500 text-white text-[10px] px-1 py-[1px] rounded font-bold">
-              🔥 TOP DEAL
-            </span>
-            <span className="bg-blue-500 text-white text-[10px] px-1 py-[1px] rounded font-semibold">
-              ✅ CHÍNH HÃNG
-            </span>
-          </div>
-        )}
+          {showBadges && (
+            <div className="absolute bottom-1 left-1 flex gap-1">
+              <img
+                src="https://salt.tikicdn.com/ts/upload/12/e2/4a/c5226426ee9429b0050449ae5403c9cf.png"
+                alt="Top Deal"
+                className=""
+              />
+            </div>
+          )}
+        </div>
 
         <div className="flex items-center gap-2 text-red-500 font-semibold text-sm">
           <span>{price.toLocaleString("vi-VN")}₫</span>
@@ -97,8 +98,13 @@ export default function BookCard({
         )}
 
         {showDeliveryInfo && (
-          <div className="text-[11px] text-pink-600 mt-1 font-medium">
-            🚀 Giao siêu tốc 2h
+          <div className="flex gap-4 items-center text-[16px] text-pink-600 mt-1 font-medium">
+            <img
+              src="https://salt.tikicdn.com/ts/tka/a8/31/b6/802e2c99dcce64c67aa2648edb15dd25.png"
+              alt="Top Deal"
+              className="h-5"
+            />
+            <span>Giao siêu tốc 2h</span>
           </div>
         )}
       </div>
