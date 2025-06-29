@@ -190,7 +190,7 @@ export default function BookSlider() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 2) % slides.length);
-    }, 200000);
+    }, 10000);
 
     return () => clearInterval(interval);
   }, [slides.length]);
@@ -248,7 +248,6 @@ export default function BookSlider() {
                   {slide.rating}
                 </p>
 
-                {/* Book Grid */}
                 <div className="grid grid-cols-3 gap-2 mt-4">
                   {slide.books.map((book) => (
                     <div
@@ -271,7 +270,6 @@ export default function BookSlider() {
           ))}
         </div>
 
-        {/* Navigation Arrows */}
         <button
           onClick={prevSlide}
           className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-2 shadow-lg transition-all duration-200 hover:scale-110"
