@@ -27,7 +27,7 @@ export default function BookDetails({ book, relatedBooks, error }: Props) {
   }
 
   return (
-    <div className="max-w-screen-2xl mx-auto px-4 py-8 grid grid-cols-[300px,1fr,280px] gap-10">
+    <div className="max-w-screen-2xl mx-auto px-4 py-8 grid grid-cols-[300px,1fr,280px] gap-10 items-start">
       <div className="sticky top-4">
         <BookContent book={book} />
       </div>
