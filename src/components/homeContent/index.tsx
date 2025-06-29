@@ -9,6 +9,7 @@ import useBooks from "@/hooks/useBooks";
 import { useSearch } from "@/context/SearchContext";
 import { Book } from "@/interfaces/Book";
 import BreadCrumb from "../common/BreadCrumb";
+import BestSellingBooks from "./BestSellingBooks";
 
 export default function HomeContent() {
   const [sortOption, setSortOption] = React.useState<string>("bestSeller");
@@ -38,9 +39,11 @@ export default function HomeContent() {
   const filteredBooks = sortBooks(
     books.filter((book) => matchesSearch(book.name))
   );
+
+  const bestsellingBook = books.sort(sortRating).slice(0, 15);
   return (
-    <div className="bg-gray-100 px-16 flex">
-      <div>
+    <div className="bg-gray-100 px-16 flex justify-center">
+      <div className="my-4 px-8">
         <BreadCrumb>Nhà sách Tiki</BreadCrumb>
         <LeftSidebar />
       </div>
@@ -50,6 +53,7 @@ export default function HomeContent() {
         <Filter sortOption={sortOption} onSortChange={setSortOption} />
         <BookList books={filteredBooks} loading={loading} error={error} />
         <Related />
+        <BestSellingBooks books={bestsellingBook} />
       </div>
     </div>
   );

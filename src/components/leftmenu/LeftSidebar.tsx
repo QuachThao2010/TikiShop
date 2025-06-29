@@ -28,14 +28,14 @@ const categories = [
 ];
 
 export default function LeftMenu() {
-  const [openIndex, setOpenIndex] = useState(null);
+  const [openIndex, setOpenIndex] = useState(0);
 
   const toggleIndex = (index: any) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
   return (
-    <div className="min-h-screen flex justify-center items-start p-6 w-2/3">
+    <div className="min-h-screen flex justify-center items-start  w-full">
       <div className="w-full max-w-md bg-white rounded-lg shadow-md overflow-hidden">
         <h2 className="p-4 font-semibold text-gray-700 border-b border-gray-200">
           Khám phá theo danh mục

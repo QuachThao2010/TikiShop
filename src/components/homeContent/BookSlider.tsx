@@ -10,6 +10,7 @@ export default function BookSlider() {
       subtitle: "Tải trọ bởi Alpha Books Official",
       rating: "5/5 ⭐",
       image: "/assets/Item1.png.webp",
+      color: "#BACDBE",
       books: [
         {
           id: 1,
@@ -39,6 +40,7 @@ export default function BookSlider() {
       subtitle: "Tải trọ bởi 1980 Books Tại Tiki Trading",
       rating: "5/5 ⭐",
       image: "/assets/item2.jpg",
+      color: "#7EAEC9",
       books: [
         {
           id: 4,
@@ -68,6 +70,7 @@ export default function BookSlider() {
       subtitle: "Tải trọ bởi Alpha Books Official",
       rating: "5/5 ⭐",
       image: "/assets/item3.jpg",
+      color: "#E7BAB0",
       books: [
         {
           id: 1,
@@ -97,6 +100,7 @@ export default function BookSlider() {
       subtitle: "Tải trọ bởi Nhà Xuất Bản Trẻ",
       rating: "4.8/5 ⭐",
       image: "/assets/item4.jpg",
+      color: "#E7BAB0",
       books: [
         {
           id: 7,
@@ -126,6 +130,7 @@ export default function BookSlider() {
       subtitle: "Tải trọ bởi Alpha Books Official",
       rating: "5/5 ⭐",
       image: "/assets/item5.jpg",
+      color: "#7EAEC9",
       books: [
         {
           id: 1,
@@ -155,6 +160,7 @@ export default function BookSlider() {
       subtitle: "Tải trọ bởi Alpha Books Official",
       rating: "5/5 ⭐",
       image: "/assets/item6.png",
+      color: "#F8F1EE",
       books: [
         {
           id: 1,
@@ -184,7 +190,7 @@ export default function BookSlider() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 2) % slides.length);
-    }, 5000);
+    }, 200000);
 
     return () => clearInterval(interval);
   }, [slides.length]);
@@ -210,7 +216,7 @@ export default function BookSlider() {
           {slides.map((slide, index) => (
             <div
               key={index}
-              className="flex-shrink-0 flex h-[200px] items-center pr-6 w-1/2"
+              className="flex-shrink-0 flex h-[200px] items-center mr-2 w-1/2"
             >
               <div
                 key={index}
@@ -219,7 +225,7 @@ export default function BookSlider() {
                 <div
                   className="absolute inset-0 z-0"
                   style={{
-                    backgroundColor: "rgb(56, 117, 70)",
+                    backgroundColor: slide.color,
                     filter: "blur(30px)",
                     transform: "scale(1.2)",
                   }}
@@ -279,31 +285,20 @@ export default function BookSlider() {
         >
           <ChevronRight className="w-6 h-6 text-gray-700" />
         </button>
-
-        {/* Slide Indicators */}
-        {/* <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
-          {[0, 2].map((slideIndex) => (
-            <button
-              key={slideIndex}
-              onClick={() => setCurrentSlide(slideIndex)}
-              className={`w-3 h-3 rounded-full transition-all duration-200 ${
-                slideIndex === currentSlide 
-                  ? 'bg-green-500 scale-125' 
-                  : 'bg-white/50 hover:bg-white/75'
-              }`}
-            />
-          ))}
-        </div> */}
       </div>
 
-      {/* Progress Bar */}
-      <div className="mt-4 bg-gray-200 rounded-full h-2 overflow-hidden">
-        <div
-          className="bg-blue-500 h-full transition-all duration-100 ease-linear"
-          style={{
-            width: `${currentSlide === 0 ? 50 : 100}%`,
-          }}
-        />
+      <div className="mt-4 flex justify-center space-x-2">
+        {Array.from({ length: Math.ceil(slides.length / 2) }).map((_, idx) => (
+          <button
+            key={idx}
+            onClick={() => setCurrentSlide(idx * 2)}
+            className={`w-4 h-1 rounded-full transition-all duration-300 ${
+              Math.floor(currentSlide / 2) === idx
+                ? "bg-blue-500"
+                : "bg-gray-300"
+            }`}
+          ></button>
+        ))}
       </div>
     </>
   );
